@@ -1,3 +1,4 @@
 .gradle/
-.exercism/
 gradle/
+.exercism/
+build/
