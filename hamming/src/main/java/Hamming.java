@@ -26,9 +26,8 @@ public class Hamming {
     }
 
     private static int calculateHammingDistance(String leftStrand, String rightStrand) {
-        return (int) IntStream.range(0, leftStrand.length())
-                .mapToObj(i -> leftStrand.charAt(i) != rightStrand.charAt(i))
-                .filter(Boolean::booleanValue)
-                .count();
+        return IntStream.range(0, leftStrand.length())
+                .map(i -> leftStrand.charAt(i) != rightStrand.charAt(i) ? 1 : 0)
+                .sum();
     }
 }
