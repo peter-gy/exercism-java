@@ -16,12 +16,10 @@ class Anagram {
                 .collect(Collectors.toList());
     }
 
-    private boolean isAnagram(String firstWord, String secondWord) {
-        char[] word1 = firstWord.toLowerCase().replaceAll("[\\s]", "").toCharArray();
-        char[] word2 = secondWord.toLowerCase().replaceAll("[\\s]", "").toCharArray();
-        if (word1.length != word2.length || Arrays.equals(word1, word2)) return false;
-        Arrays.sort(word1);
-        Arrays.sort(word2);
-        return Arrays.equals(word1, word2);
+    private static boolean isAnagram(String word1, String word2) {
+        return  !word1.equalsIgnoreCase(word2) &&
+                Arrays.equals(
+                word1.toLowerCase().chars().sorted().toArray(),
+                word2.toLowerCase().chars().sorted().toArray());
     }
 }
