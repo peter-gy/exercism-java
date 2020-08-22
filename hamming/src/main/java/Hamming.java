@@ -4,6 +4,7 @@ public class Hamming {
 
     private final String leftStrand;
     private final String rightStrand;
+    private final int hammingDistance;
 
     public Hamming(String leftStrand, String rightStrand) {
         if (leftStrand.isEmpty() && !rightStrand.isEmpty())
@@ -17,9 +18,14 @@ public class Hamming {
 
         this.leftStrand = leftStrand;
         this.rightStrand = rightStrand;
+        this.hammingDistance = calculateHammingDistance(leftStrand, rightStrand);
     }
 
     public int getHammingDistance() {
+        return hammingDistance;
+    }
+
+    private static int calculateHammingDistance(String leftStrand, String rightStrand) {
         return (int) IntStream.range(0, leftStrand.length())
                 .mapToObj(i -> leftStrand.charAt(i) != rightStrand.charAt(i))
                 .filter(Boolean::booleanValue)
