@@ -1,15 +1,10 @@
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class PangramChecker {
 
-    private static final String alphabet = IntStream.range(97, 123)
-            .mapToObj(i -> "" + (char)i)
-            .collect(Collectors.joining());
+    private static final int LETTERS_IN_ALPHABET = 26;
 
     public boolean isPangram(String input) {
-        final String lowerCasedInput = input.toLowerCase();
-        return alphabet.chars().allMatch(value -> lowerCasedInput.contains("" + (char)value));
+        return input.toLowerCase().chars().filter(Character::isAlphabetic).distinct().count() == LETTERS_IN_ALPHABET;
     }
 
 }
