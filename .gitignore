@@ -2,5 +2,3 @@
 gradle/
 .exercism/
 build/
-gradlew
-gradlew.bat
